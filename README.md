@@ -33,7 +33,7 @@ IDLE for development and implementation
 💻 How to Run
 
 1. Clone the repository:
-   git clone https://github.com/your-username/calculator-project.git
+   git clone https://github.com/TamizhselvanV/calculator-project.git
 
 2. Navigate into the folder:
    cd calculator-project
