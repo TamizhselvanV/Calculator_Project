@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: 40px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      margin-bottom: 20px;
+    }
+
+    .calculator {
+      background-color: #ffffffee;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      width: 320px;
+      border: 2px solid #444;
+    }
+
+    .display {
+      background: #111;
+      color: #0f0;
+      font-size: 28px;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: right;
+      border: 2px solid #444;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 2px solid #444;
+      background-color: #eee;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-operator {
+      background-color: #f0ad4e;
+      color: white;
+    }
+
+    .btn-equal {
+      background-color: #5cb85c;
+      color: white;
+    }
+
+    .btn-clear {
+      background-color: #d9534f;
+      color: white;
+    }
+
+    .btn-backspace {
+      background-color: #9c27b0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CALCULATOR</h1>
+
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button onclick="clearDisplay()" class="btn-clear">C</button>
+      <button onclick="backspace()" class="btn-backspace">⌫</button>
+      <button onclick="append('%')" class="btn-operator">%</button>
+      <button onclick="append('/')" class="btn-operator">÷</button>
+
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('*')" class="btn-operator">×</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('-')" class="btn-operator">−</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('+')" class="btn-operator">+</button>
+
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button onclick="calculate()" class="btn-equal">=</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById("display");
+
+    function append(value) {
+      if (display.innerText === "0" && value !== ".") {
+        display.innerText = value;
+      } else {
+        display.innerText += value;
+      }
+    }
+
+    function clearDisplay() {
+      display.innerText = "0";
+    }
+
+    function backspace() {
+      let current = display.innerText;
+      if (current.length > 1) {
+        display.innerText = current.slice(0, -1);
+      } else {
+        display.innerText = "0";
+      }
+    }
+
+    function calculate() {
+      try {
+        let result = eval(display.innerText.replace(/×/g, '*').replace(/÷/g, '/'));
+        display.innerText = result;
+      } catch {
+        display.innerText = "Error";
+      }
+    }
+  </script>
+
+</body>
+</html>
