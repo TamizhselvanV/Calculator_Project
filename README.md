@@ -26,7 +26,7 @@ IDLE for development and implementation
 
 📷 Screenshots
 
-
+Simple_Calculator.png
 
 
 
@@ -53,7 +53,7 @@ IDLE for development and implementation
 calculator-project/
 ├── calculator.py
 ├── README.md
-└── calculator_gui.png
+└── Simple_Calculator.png
 
  🙋‍♀️ Author
 
